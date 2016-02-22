@@ -1,0 +1,82 @@
+// form views (Angebot, Antrag, Vertrag, Schaden)
+
+.scene-header {
+    .make-md-column(8);
+}
+
+.scene-header-headline {}
+
+.scene-agents {
+    .make-md-column(4); // TODO: should use `max-width`, not `width` to shrink-wrap
+    text-align: right;
+    background-color: @body-bg;
+    margin-top: @page-header-margin-top;
+
+    small {
+        display: block;
+        color: @gray;
+    }
+
+    .control-label {
+        .make-sm-column(4);
+    }
+
+    .fields {
+        .make-sm-column(8);
+        padding-right: 0;
+    }
+
+    .form-group {
+        .make-md-column(12);
+    }
+}
+
+.scene-form {
+    margin-top: 2em;
+
+    .control-label {
+        .make-sm-column(2);
+    }
+
+    .fields {
+        .make-sm-column(8);
+    }
+}
+
+.scene-fieldset {
+    margin-bottom: 4em;
+    // border-left: 2px solid @widget-color-secondary;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.scene-legend {
+    border-bottom: 0;
+}
+
+.scene-contents { // XXX: bad name?
+    .make-md-column(12);
+}
+
+.scene-summary {
+    overflow: auto;
+    margin-top: 2em;
+    margin-bottom: 1em; // XXX: DEBUG
+    padding-top: 0.25em;
+    padding-left: 0;
+    list-style-type: none;
+    background-color: @widget-color-bg;
+
+    & > * {
+        .make-md-column(3);
+    }
+
+    .table {
+        margin-top: 1em;
+    }
+
+    th {
+        font-weight: 600;
+    }
+}

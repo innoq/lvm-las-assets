@@ -1,0 +1,72 @@
+// ============================================================================
+// A list or table, optionally with functionality for sorting and filtering
+//
+// The corresponding markup usually looks like this:
+//
+//     <div class="listing">
+//         <header class="listing-header">
+//             <h2>...</h2>
+//             <input type="search" class="search">
+//         </header>
+//         <table> <!-- might also be a UL/OL -->
+//             ...
+//         </table>
+//     </div>
+//
+// ============================================================================
+
+.listing-header {
+    overflow: hidden;
+
+    h2 {
+        float: left;
+        display: inline;
+
+        @media (max-width: @screen-xs-max) {
+            font-size: @font-size-h3;
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+// Sorting
+// ----------------------------------------------------------------------------
+
+.sortable .sort {
+    cursor: pointer;
+    user-select: none;
+
+    &.asc:after { content: ">"; }
+    &.desc:after { content: "?"; }
+
+    &.asc, &.desc {
+        &:after { color: @gray; }
+    }
+
+    &:after {
+        .icon();
+        margin-left: 0.25em;
+        // FIXME: our icon mixins only support :before injections
+        content: "=";
+        color: @input-border;
+    }
+}
+
+// ----------------------------------------------------------------------------
+// Filtering
+// ----------------------------------------------------------------------------
+
+.listing-header .search {
+    .form-control();
+    float: right;
+    width: auto;
+    margin-top: @line-height-computed;
+}
+
+@media screen and (max-width: @screen-xs-min) {
+    .listing-header .search {
+        width: 100%;
+        margin-top: inherit;
+        margin-bottom: 1em;
+    }
+}

@@ -1,0 +1,73 @@
+// ============================================================================
+// The portfolio overview shows every product of a customer that
+// needs immediate attention.
+// ============================================================================
+
+
+// ----------------------------------------------------------------------------
+// Component Styling
+// ----------------------------------------------------------------------------
+
+.portfolio-overview {
+    .payment-interval,
+    .col-portfolio-status > .fa {
+        cursor: help;
+    }
+
+    .payment-interval {
+        .label();
+        display: inline-block;
+        padding: .5em;
+        background-color: @gray-light;
+        font-weight: 600;
+        color: white;
+        min-width: 3em;
+        text-align: center;
+    }
+
+    .fa { &:extend(.small); }
+    .danger { color: @brand-danger; }
+    .success { color: @brand-success; }
+    .warning { color: @brand-warning; }
+    .active { color: @gray-lighter; }
+    .subdued { color: #bbb; }
+}
+
+.portfolio-summary {
+    padding: 10px 0;
+    border-top: 2px solid @gray-light;
+    background-color: @gray-lighter;
+    margin-bottom: 2em;
+
+    > ul {
+        .make-row();
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+}
+
+// ----------------------------------------------------------------------------
+// Component Layout
+// ----------------------------------------------------------------------------
+
+// TODO: Extract layout styles
+
+// ----------------------------------------------------------------------------
+// Media Queries
+// ----------------------------------------------------------------------------
+
+@media (max-width: @screen-md-max) {
+  .portfolio-overview {
+      .col-portfolio-status-label,
+      .branch-selector-item-caption {
+          display: none;
+      }
+  }
+}
+
+@media screen and (min-width: @screen-sm-max) {
+    .portfolio-summary {
+        text-align: center;
+    }
+}

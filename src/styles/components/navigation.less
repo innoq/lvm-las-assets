@@ -1,0 +1,96 @@
+@search-icon-margin: 3em;
+
+.navbar-brand {
+    display: block;
+    width: 5em;
+    height: auto;
+    padding: 12px 15px;
+}
+
+.topbar {
+    margin-bottom: 0;
+    border-bottom: 0;
+
+    button,
+    .nav-main-links {
+        text-transform: uppercase;
+    }
+
+    // Fix inline scrolling inside the responsive menu
+    .navbar-nav { margin-right: 0; }
+}
+
+.topbar-notifications-label {
+    @media (min-width: @screen-xs-max) {
+        display: none;
+    }
+}
+
+// User icon
+.topbar-user {
+    .hidden-xs;
+    .hidden-lg;
+    .visible-md-inline;
+    .visible-sm-inline;
+}
+
+.topbar-user-label {
+    .hidden-md;
+    .hidden-sm;
+}
+
+.navbar-toggle {
+    color: @widget-link-color;
+    margin: 0;
+    padding-top: 13px;
+}
+
+.navbar-form {
+    // Disable block form controls with 100% width
+    // on small viewports in main nav
+    .form-control {
+        display: inline-block;
+        width: auto;
+
+        // Prevent navbar line-wrap
+        @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+            width: 12em; // TODO: Magic number
+        }
+    }
+
+    .form-group {
+        position: relative;
+        @media (max-width: @screen-sm-max) {
+            display: inline-block;
+        }
+    }
+
+    @media (max-width: @screen-sm-max) {
+        // FIXME: am i fighting against bootstrap?
+        // http://media.giphy.com/media/RIECDaCdxqKha/giphy.gif
+        margin-left: 0px;
+    }
+}
+
+.navbar-search-control {
+    // Make space for the inline button
+    padding-right: @search-icon-margin;
+}
+
+.navbar-search-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: @input-border;
+    &:hover { text-decoration: none; }
+}
+
+.context-nav { // XXX: does not belong here?
+    &.is-fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: @zindex-modal - 10;
+    }
+}

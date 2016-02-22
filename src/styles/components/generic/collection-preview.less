@@ -1,0 +1,30 @@
+// ============================================================================
+// A small overlay of secondary content (based on Bootstrap's popovers)
+//
+// The corresponding (pre-transformation) markup usually looks like this:
+//
+//     <a href="/foo" class="collection-preview" data-popover-content="#foo">
+//         ...
+//     </a>
+//     ...
+//     <div id="foo" class="collection-excerpt">
+//         <h3 class="collection-excerpt-title">
+//             ...
+//             <a href="/foo" class="collection-link">...</a>
+//         </h3>
+//         ...
+//     </div>
+//
+// ============================================================================
+
+.collection-excerpt {
+    display: none;
+}
+
+.collection-link {
+    &:extend(.small);
+    float: right;
+    margin-left: 1em;
+    font-family: @font-family-sans-serif;
+    font-weight: 300;
+}

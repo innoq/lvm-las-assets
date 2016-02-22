@@ -1,0 +1,82 @@
+.dashboard {
+    &:extend(.container);
+}
+
+.dashboard-stats {
+    &:extend(.row);
+    overflow: auto;
+    margin-top: 1em;
+    padding: 0;
+    list-style-type: none;
+    font-size: 1.5em;
+    text-align: center;
+
+    > li {
+        .make-sm-column(3);
+        position: relative;
+        border: 1px solid #FFF; // TODO: use variable
+        padding: 0.5em;
+        background-color: @widget-color-bg;
+    }
+
+    big { // XXX: bad markup
+        display: block;
+        font-weight: bold;
+    }
+
+    .category,
+    .diff {
+        font-size: 0.9em;
+    }
+
+    .diff {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0.5em;
+    }
+
+    .positive {
+        color: green; // TODO: use variable
+    }
+
+    .negative {
+        color: red; // TODO: use variable
+    }
+}
+
+.dashboard-appointments,
+.appointments  {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.dashboard-appointments {
+    float: right; // TODO: use grid instead
+    margin-right: -15px; // XXX: only required
+
+    .appointments > li {
+        width: 18em; // TODO: use grid instead
+    }
+
+    h3 {
+        margin: 0.5em 0 0.2em;
+        padding: 0.2em 0.5em;
+        background-color: @widget-color-bg;
+    }
+
+    time {
+        &:extend(.contact-history-entry-date); // FIXME: hacky!
+        display: inline-block;
+        width: 2em;
+
+        &.relative {
+            width: 5em;
+        }
+    }
+
+    .desc {
+        &:extend(.small);
+        margin-left: 1em;
+    }
+}

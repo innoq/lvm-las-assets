@@ -1,0 +1,35 @@
+// adapted from http://impressivewebs.github.io/QuestionMark.js/
+
+.highlighted { // FIXME: does not belong here
+    z-index: @zindex-modal + 10;
+    border-radius: 5px !important; // XXX: hacky!
+    background-color: #FFF; // XXX: non-generic
+}
+
+.kbd { // XXX: does not belong here?
+    .help-key {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: @zindex-modal + 20;
+        padding: 2px;
+    }
+}
+
+.help-key { // TODO: rename
+    box-shadow: none;
+    color: #000; // neutralize Bootstrap default
+    background-color: transparent; // neutralize Bootstrap default
+}
+
+.help-key span {
+    display: inline-block;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    padding: 0 8px;
+    text-align: center;
+    box-shadow: inset 0 1px 0 #fff, 0 1px 0 #CCC;
+    background-color: #EEE;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(#F5F5F5 0%, #EEE 100%);
+}

@@ -1,0 +1,46 @@
+@height: 10em; // XXX: non-generic
+
+.expandable-grid {
+    position: relative;
+}
+
+.expandable-grid-item {
+    @width: 100%;
+    @padding: 1em; // XXX: non-generic
+
+    // TODO: use `transitional` mix-in?
+    transition-duration: 0.5s;
+    transition-property: top, left, width, height;
+    transition-timing-function: ease-in-out;
+
+    float: left;
+    width: @width;
+    height: @height;
+    padding-bottom: @padding;
+
+    @media (min-width: @screen-xs-min) {
+        width: @width / 2;
+        padding-right: @padding;
+    }
+
+    @media (min-width: @screen-sm-min) {
+        width: @width / 3;
+    }
+
+    @media (min-width: @screen-lg-min) {
+        width: @width / 5;
+    }
+
+    &.expanded {
+        padding-right: 0;
+    }
+}
+
+.expandable-grid-item.expanded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: @zindex-modal;
+    width: 100%;
+    height: 3 * @height; // XXX: magic number -- XXX: non-generic
+}

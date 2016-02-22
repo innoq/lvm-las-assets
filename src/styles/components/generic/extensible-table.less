@@ -1,0 +1,32 @@
+// TODO: s/extensible/editable/ ?
+
+table.extensible { // XXX: bad selector?
+    border: 1px solid @table-border-color;
+
+    tr.is-selected,
+    tr.dialog { // XXX: does not belong here
+        background-color: @table-bg-accent; // XXX: too light?
+    }
+}
+
+table.editable { // XXX: bad selector?
+    tbody tr.dialog td {
+        border-top: none;
+    }
+
+    a.transclude {
+        .transitional(color);
+        &:hover, &:focus {
+            text-decoration: none;
+        }
+    }
+
+    .breadcrumb { // XXX: non-generic!?
+        background-color: transparent;
+    }
+
+    .table-responsive { // XXX: non-generic!?
+        border-left: 2px solid @widget-color-secondary;
+        padding-left: 1em;
+    }
+}

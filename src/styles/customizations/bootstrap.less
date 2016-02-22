@@ -1,0 +1,193 @@
+// ============================================================================
+// This file contains all customizations to Bootstrap components
+// ============================================================================
+
+// ----------------------------------------------------------------------------
+// Variable overrides
+// ----------------------------------------------------------------------------
+
+@icon-font-path:                    '@{asset-root-path}bower_components/bootstrap/fonts/';
+
+@brand-primary:                     @widget-color-primary;
+@link-color:                        @widget-color-primary;
+@link-hover-color:                  @gray-light;
+
+@font-family-sans-serif:            'Open Sans', Helvetica, Arial, sans-serif;
+@font-family-serif:                 'Open Sans', Helvetica, Arial, sans-serif;
+@headings-font-family:              'LVM Rotis Regular', sans-serif;
+
+@navbar-default-color:              @widget-link-color;
+@navbar-default-bg:                 @body-bg;
+@navbar-default-border:             @navbar-default-bg;
+@navbar-default-link-hover-color:   @widget-color-primary;
+@navbar-default-border:             black;
+@navbar-border-radius:              0;
+@nav-link-hover-bg:                 #fff;
+
+@input-color-placeholder:           #aaa;
+
+@border-radius-base:                0;
+@border-radius-small:               0;
+@border-radius-large:               0;
+
+@modal-title-padding:               20px;
+@modal-inner-padding:               20px;
+
+@popover-max-width:                 100%;
+
+// ----------------------------------------------------------------------------
+// Custom variables
+// ----------------------------------------------------------------------------
+
+@page-header-margin-top:            1.5em;
+
+// ----------------------------------------------------------------------------
+// Component overrides
+// ----------------------------------------------------------------------------
+
+// XXX: workaround for https://github.com/julianshapiro/velocity/issues/214
+.list-group-item { list-style-type: none; }
+
+// Remove/modify default box shadow
+.modal-content,
+.dropdown-menu,
+.popover {
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.07);
+}
+
+// Adjust popover stettings
+.popover-content { .small(); }
+.popover-title { font-weight: 700; }
+
+// Override focus-glow on all form fields
+.form-control,
+textarea.form-control,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+    border-width: 1px;
+    .box-shadow(none);
+
+    &:focus {
+        border-color: @gray;
+        .box-shadow(none);
+    }
+}
+
+.has-warning,
+.has-error,
+.has-success {
+    .form-control,
+    .form-control:focus {
+        border-width: 1px;
+        .box-shadow(none);
+    }
+}
+
+// Adjust form labels
+.control-label {
+    font-weight: 600;
+}
+
+.modal-header {
+    .alert {
+        margin-top: 0.5em;
+        margin-bottom: -0.5em;
+    }
+
+    > .close {
+        .h3();
+        margin: 0;
+    }
+}
+
+.modal-footer {
+    text-align: left;
+}
+
+.page-header {
+    margin-top: @page-header-margin-top;
+    h1 {
+        margin-top: 0;
+        @media (max-width: @screen-xs-max) {
+            font-size: @font-size-h2;
+        }
+    }
+}
+
+// Trigger Bootstrap responsive tables at @screen-sm-max
+.table-responsive {
+  @media screen and (max-width: @screen-sm-max) {
+    width: 100%;
+    margin-bottom: (@line-height-computed * 0.75);
+    overflow-y: hidden;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid @table-border-color;
+    -webkit-overflow-scrolling: touch;
+
+    // Tighten up spacing
+    > .table {
+      margin-bottom: 0;
+
+      // Ensure the content doesn't wrap
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    // Special overrides for the bordered tables
+    > .table-bordered {
+      border: 0;
+
+      // Nuke the appropriate borders so that the parent can handle them
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th:first-child,
+          > td:first-child {
+            border-left: 0;
+          }
+          > th:last-child,
+          > td:last-child {
+            border-right: 0;
+          }
+        }
+      }
+
+      // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
+      // chances are there will be only one `tr` in a `thead` and that would
+      // remove the border altogether.
+      > tbody,
+      > tfoot {
+        > tr:last-child {
+          > th,
+          > td {
+            border-bottom: 0;
+          }
+        }
+      }
+
+    }
+  }
+}

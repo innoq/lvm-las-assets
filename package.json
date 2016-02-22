@@ -1,10 +1,33 @@
 {
+  "name": "lvm-las-assets",
+  "version": "0.0.1",
+  "description": "Assets for LVM LAS projects",
+  "homepage": "https://github.com/innoq/lvm-las-assets",
+  "bugs": {
+    "url": "https://github.com/innoq/lvm-las-assets/issues"
+  },
+  "main": "src/scripts/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/innoq/lvm-las-assets"
+  },
   "scripts": {
     "start": "webpack --progress --colors --watch",
     "test": "eslint --cache *.js src && echo ✓",
     "compile": "webpack"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "eslint-config-standard": "^5.1.0",
+    "eslint-plugin-promise": "^1.0.8",
+    "eslint-plugin-standard": "^1.3.2",
+    "install": "^0.4.4",
+    "jquery": "^2.1.1",
+    "list.js": "git+ssh://git@github.com/FND/list.js.git",
+    "npm": "^3.7.3",
+    "stickynav": "git+ssh://git@github.com/innoq/stickynav.git",
+    "velocity-animate": "^0.11.7"
+  },
   "devDependencies": {
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.3",

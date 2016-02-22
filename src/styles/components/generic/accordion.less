@@ -1,0 +1,37 @@
+// ============================================================================
+// A generic accordion that toggles its content.
+// ============================================================================
+
+.accordion-title { position: relative; }
+
+// A toggle lies inside an .accordion-title
+// and is per default aligned to the right.
+.accordion-toggle {
+    position: absolute;
+    top: 0;
+    right: @padding-xs-horizontal;
+    line-height: inherit;
+    cursor: pointer;
+    user-select: none;
+
+    &:before {
+        .icon(.7em);
+        content: "-";
+    }
+
+    &.toggled:before {
+        content: ".";
+    }
+
+    @media (min-width: @screen-sm-min) {
+        right: @padding-small-horizontal;
+    }
+
+    @media (min-width: @screen-md-min) {
+        right: @padding-base-horizontal;
+    }
+
+    @media (min-width: @screen-lg-min) {
+        right: @padding-large-horizontal;
+    }
+}

@@ -1,0 +1,25 @@
+.transitional(@property: all, @duration: 0.25s) {
+    transition: @property @duration ease-in-out;
+}
+
+.list() {
+    .list-group();
+
+    > li {
+        .list-group-item();
+    }
+}
+
+.fullwidth-wrapper(@bg-color: @widget-color-bg) {
+    width: 100%;
+    background-color: @bg-color;
+}
+
+.is-vibrating() {
+    animation: vibrate 0.1s infinite;
+}
+
+@keyframes vibrate {
+    50%  { transform: rotate(1deg) translateX(1px); }
+    100% { transform: rotate(-1deg) translateX(-1px); }
+}

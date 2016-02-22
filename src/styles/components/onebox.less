@@ -1,0 +1,148 @@
+// ============================================================================
+// The onebox component is used to search for various customer attributes.
+// It displays the results in list like panels.
+// ============================================================================
+
+
+// ----------------------------------------------------------------------------
+// Variables
+// ----------------------------------------------------------------------------
+
+@onebox-font-size: 2em;
+@onebox-height: @onebox-font-size;
+
+// ----------------------------------------------------------------------------
+// Component Styling
+// ----------------------------------------------------------------------------
+
+.onebox,
+.onebox-results .list-group-item {
+    margin-bottom: 1em;
+}
+
+.onebox {
+    position: relative;
+}
+
+.onebox-heading {
+    .page-header();
+}
+
+.onebox-searchgroup {
+    margin: 0;
+}
+
+.onebox-search {
+    .form-control();
+    .input-lg();
+    padding-right: 3em;
+}
+
+.onebox-settings {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    .onebox-settings-btn {
+        color: @gray-light;
+        &:hover, &:focus {
+            text-decoration: none;
+        }
+    }
+
+    .onebox-settings-btn-cog-icon {
+        &:before {
+            .icon();
+            content: "'";
+        }
+    }
+
+    .onebox-settings-btn-dropdown-icon {
+        &:before {
+            .icon(.7em);
+            content: "-";
+        }
+    }
+
+    &.open {
+        .onebox-settings-btn { color: @widget-color-primary; }
+        .dropdown-menu {
+            left: inherit;
+            right: 0;
+            text-align: right;
+            padding: 0;
+            border-top: 0;
+            margin-top: 0;
+
+            label {
+                font-weight: normal;
+                padding-right: 1em;
+                margin-bottom: 0;
+                line-height: 2.7em;
+            }
+
+            a {
+                height: 2.7em;
+                line-height: 2.7em;
+            }
+        }
+    }
+}
+
+.onebox-results {
+    .list-group();
+    a {
+        .transitional(color);
+        display: block;
+        color: @gray;
+        &:hover {
+            text-decoration: none;
+            color: @widget-color-primary;
+        }
+    }
+
+    .list-group-item {
+        padding-bottom: 1.5em;
+        p { margin-bottom: 0; }
+        h3 { margin: .5em inherit; }
+    }
+}
+
+.onebox-results-branches {
+    display: block;
+    margin-top: .5em;
+
+    @media (min-width: @screen-sm-min) {
+        display: inline-block;
+        float: right;
+        margin-top: 0;
+    }
+
+    .onebox-results-branches-icon {
+        margin-right: .1em;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+// Component Layout
+// ----------------------------------------------------------------------------
+
+// TODO: Extract layout styles
+
+// ----------------------------------------------------------------------------
+// Media Queries
+// ----------------------------------------------------------------------------
+
+// On large screens center all onebox components.
+// On smaller screens the grid container is used.
+@media (min-width: @screen-lg-min) {
+    .onebox,
+    .onebox-heading,
+    .onebox-results {
+        .center-block();
+        width: 61.8%; // Golden section
+    }
+}

@@ -1,0 +1,21 @@
+.notification-bubble(@color: white, @width: 1.5em, @right: 0, @top: @width / 2, @background-color: @brand-danger) {
+    position: relative;
+
+    &[data-bubble]:after {
+        display: block;
+        width: @width;
+        height: @width;
+
+        position: absolute;
+        top: @top;
+        right: @right;
+
+        font-size: @font-size-tiny;
+        line-height: @width;
+        text-align: center;
+        border-radius: 50%;
+        background-color: @background-color;
+        color: @color;
+        content: attr(data-bubble);
+    }
+}

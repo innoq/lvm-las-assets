@@ -1,0 +1,218 @@
+// ============================================================================
+// The customer card shows various information about the respective customer
+// ============================================================================
+
+.customer-card-wrapper {
+    .fullwidth-wrapper(@bg-color: @widget-color-primary);
+}
+
+.customer-card {
+    padding: 9px 0;
+    color: @body-bg;
+
+    .accordion-title {
+        .make-row();
+    }
+
+    // The accordion-toggle inside a custumer card
+    // is aligned to the left on medium and large screens
+    .accordion-toggle {
+        font-size: @font-size-h3;
+        right: @padding-large-horizontal;
+
+        @media (min-width: @screen-sm-min) {
+            right: @padding-small-horizontal;
+        }
+
+        @media (min-width: @screen-md-min) {
+            right: auto;
+            left: -@padding-base-horizontal;
+        }
+
+        @media (min-width: @screen-lg-min) {
+            right: auto;
+            left: -@padding-large-horizontal;
+        }
+    }
+
+    a {
+        color: @body-bg;
+        &:hover {
+            color: @body-bg;
+        }
+    }
+}
+
+.customer-card-name {
+    .make-md-column(5);
+    margin-bottom: 0;
+    color: @body-bg;
+    font-family: @headings-font-family;
+    font-size: @font-size-h3;
+}
+
+.customer-card-flags {
+    a,
+    a:hover {
+        color: @widget-color-primary;
+    }
+
+    @media (min-width: @screen-sm-min) {
+        &:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+        }
+    }
+
+    @media (max-width: @screen-xs-min) {
+        display: block;
+    }
+}
+
+.customer-card-details {
+    .make-row();
+    margin-top: 1em;
+}
+
+.customer-card-contact,
+.customer-card-misc {
+    .make-sm-column(3);
+
+    @media (max-width: @screen-sm-min) {
+        margin-bottom: 1em;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.customer-card-flag {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0.25em 0.5em;
+    margin-top: 0.5em;
+
+    font-size: @font-size-small;
+    color: @widget-color-primary;
+    background: @body-bg;
+    border-radius: 2px;
+}
+
+.customer-card-portfolio {
+    .make-sm-column(11);
+    .make-md-column(6);
+    margin-top: 7px; // FIXME: magic number
+    margin-bottom: 0;
+    list-style-type: none;
+
+    @media (min-width: @screen-md-min) {
+        text-align: right;
+    }
+}
+
+.customer-card-portfolio-item {
+    display: inline-block;
+    padding: 0 10px 0 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+
+    &:first-child {
+        padding-left: 0;
+    }
+
+    &:last-child {
+        border-right: 0;
+        // FIXME: hardcoded iPhone x-resolution
+        @media (max-width: 320px) {
+            padding-left: 0;
+        }
+    }
+
+    @media (max-width: @screen-xs-max) {
+        padding: 0 5px;
+    }
+}
+
+.customer-card-portfolio-item-link {
+    text-transform: uppercase;
+}
+
+.customer-card-portfolio-item-popover-timestamp {
+    color: @headings-small-color;
+    font-style: italic;
+}
+
+.customer-card-drawer {
+    .make-sm-column(1);
+    .make-md-column(1);
+
+    @media (min-width: @screen-sm-min) {
+        text-align: right;
+    }
+}
+
+.customer-card-drawer-btn {
+    .btn();
+    .btn-lg();
+    .btn-link();
+    .notification-bubble(@top: 4px, @right: -15px);
+
+    color: @body-bg;
+    padding: 4px 2px;
+    margin: 0;
+
+    &:hover, &:focus {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    @media (min-width: @screen-sm-min) {
+    }
+}
+
+// Style duplicated responsive markup for
+//     .customer-card-portfolio
+//     .customer-card-drawer
+// in order to avoid doing media queries in JavaScript
+
+.customer-card {
+    .accordion-title {
+        .customer-card-flags {
+            .hidden-xs();
+        }
+
+        .customer-card-portfolio {
+            .hidden-xs();
+        }
+
+        .customer-card-drawer {
+            .hidden-xs();
+        }
+    }
+
+    .customer-card-details {
+        .customer-card-flags {
+            .visible-xs-block();
+            .make-xs-column(12);
+            margin-bottom: 1em;
+        }
+
+        .customer-card-portfolio {
+            .visible-xs-block();
+            margin-bottom: 1em;
+        }
+
+        .customer-card-drawer {
+            .visible-xs-block();
+        }
+    }
+}
+
+// Media queries
+
+@media (max-width: @screen-md-max) {
+    .customer-card-portfolio-item-popover-content .branch-selector-item-caption {
+        display: none;
+    }
+}

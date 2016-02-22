@@ -1,0 +1,235 @@
+@branch-selector-md-width: 600px;
+@branch-selector-lg-width: 680px;
+@branch-selector-xl-width: 1200px;
+
+.branch-selector-fullwidth-wrapper {
+    .fullwidth-wrapper(@bg-color: @widget-color-bg);
+    padding: 16px 0;
+}
+
+.is-fixed .branch-selector-fullwidth-wrapper {
+    &.is-fixed-at-bottom {
+        position: fixed;
+        bottom: 0;
+
+        border-top: 1px solid darken(@widget-color-bg, 5%);
+    }
+}
+
+.branch-selector-toggle {
+    position: relative;
+}
+
+.branch-selector-toggle-button {
+    display: none;
+
+    padding: 0;
+
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+
+    // TODO: set focus, hover and active states
+    // http://www.outlinenone.com/
+    outline: 0;
+
+    text-transform: uppercase;
+    font-weight: 400;
+
+    color: @widget-link-color;
+
+    .label { font-weight: 400; }
+    & + .accordion-toggle { display: none; }
+
+    @media (max-width: @branch-selector-md-width) {
+        display: inline-block;
+        & + .accordion-toggle {
+            display: inline;
+        }
+    }
+}
+
+.branch-selector {
+    .list-unstyled();
+
+    overflow: hidden;
+    margin: 0;
+
+    @media (max-width: @branch-selector-md-width) {
+        display: none;
+        margin-top: 1em;
+    }
+
+    @media (min-width: @branch-selector-xl-width) {
+        .center-block();
+
+        text-align: center;
+
+        display: flex;
+        flex-direction: row;
+
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+.branch-selector-item {
+    .transitional();
+
+    &:first-child {
+        padding-left: 0;
+    }
+
+    &:last-child {
+        padding-right: 0;
+    }
+
+    &:hover {
+        .branch-selector-item-icon {
+            @media (min-width: @screen-md-min) {
+                color: @widget-color-primary;
+            }
+        }
+
+        .branch-selector-item-indicator {
+            background-color: @widget-color-primary;
+        }
+
+        .branch-selector-item-link {
+            color: @widget-color-primary;
+            text-decoration: none;
+        }
+    }
+
+    // 2 columns on viewports <= 600px
+    @media (max-width: @branch-selector-md-width) {
+        float: left;
+        width: calc(100% / 2);
+
+        padding: 5px 0;
+        border-right: 2px solid @widget-color-secondary;
+
+        &:nth-child(2n) {
+            .clearfix();
+            border-right: 0;
+            padding-left: 15px;
+        }
+    }
+
+    // 4 columns on viewports >= 601px and <= 680px
+    @media (min-width: @branch-selector-md-width) and (max-width: @branch-selector-lg-width) {
+        float: left;
+        width: calc(100% / 4);
+
+        padding: 5px 0;
+        border-right: 2px solid @widget-color-secondary;
+
+        padding-left: 15px;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:nth-child(4n) {
+            .clearfix();
+            border-right: 0;
+        }
+
+        &:nth-child(4n+1) {
+            padding-left: 0;
+        }
+    }
+
+    // 5 columns on viewports >= 680px
+    @media (min-width: @branch-selector-lg-width) {
+        float: left;
+        width: calc(100% / 5);
+
+        padding: 5px 0;
+        border-right: 2px solid @widget-color-secondary;
+
+        padding-left: 15px;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:nth-child(5n) {
+            .clearfix();
+            border-right: 0;
+        }
+
+        &:nth-child(5n+1) {
+            padding-left: 0;
+        }
+    }
+
+    // Flex box with big icons on viewports >= 1200px
+    @media (min-width: @branch-selector-xl-width) {
+        flex-grow: 1;
+        width: 0; // NOTE: blocks flex-wrap for some reason
+        padding: 0 1em;
+        border: 0;
+    }
+}
+
+.branch-selector-item-icon {
+    display: inline-block;
+    position: relative;
+
+    &:before { .icon(); }
+    &.fonds       { .icon-business-chart-2-filled(); }
+    &.finanzen    { .icon-piggy-bank-filled(); }
+    &.leben       { .icon-fire-filled(); }
+    &.kranken     { .icon-hospital-2-filled(); }
+    &.unfall      { .icon-fire-filled(); }
+    &.haftpflicht { .icon-football-helmet-filled(); }
+    &.sach        { .icon-laptop-2-filled(); }
+    &.recht       { .icon-balance-filled(); }
+    &.kfz         { .icon-car-2-filled(); }
+
+    &:not(.is-condensed) {
+        // Render big icons on big viewports
+        @media (min-width: @branch-selector-xl-width) {
+            @width: 3em;
+            @height: 3em;
+
+            .center-block();
+            .transitional(color);
+            display: block;
+            font-size: @font-size-h3;
+            color: @gray;
+            text-align: center;
+
+            &.fonds       { .icon-business-chart-2(); }
+            &.finanzen    { .icon-piggy-bank(); }
+            &.leben       { .icon-heartpulse(); }
+            &.kranken     { .icon-hospital-2(); }
+            &.unfall      { .icon-fire(); }
+            &.haftpflicht { .icon-football-helmet(); }
+            &.sach        { .icon-laptop-2(); }
+            &.recht       { .icon-balance(); }
+            &.kfz         { .icon-car-2(); }
+        }
+    }
+}
+
+.branch-selector-item-link {
+    .transitional();
+    color: @widget-link-color;
+}
+
+.branch-selector-item-caption {
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: @font-size-small;
+}
+
+.branch-selector-item-caption + .branch-selector-item-indicator {
+    .transitional(background-color);
+    padding: 0em .25em;
+    margin-left: .5em;
+    font-size: @font-size-small;
+    font-weight: 300;
+    text-align: center;
+}

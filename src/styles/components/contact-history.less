@@ -1,0 +1,67 @@
+// ============================================================================
+// A contact history shows current interactions with a customer.
+// ============================================================================
+
+.contact-history { margin-bottom: 2em; }
+
+.contact-history-entries {
+    .list();
+    margin-bottom: 0;
+}
+
+.contact-history-entry-type,
+.contact-history-entry-date,
+.contact-history-entry-clerk,
+.contact-history-more-entries
+{
+    &:extend(.small);
+    color: @headings-small-color;
+}
+
+.contact-history-entry-type {
+    margin-right: 0.5em;
+    text-transform: uppercase;
+
+    > .fa {
+        margin-right: 0.25em;
+    }
+}
+
+.contact-history-entry-date {
+    margin-right: 1em;
+    font-style: italic;
+}
+
+.contact-history-entry-clerk {
+    float: right;
+    &:before {
+        .icon();
+        content: "%";
+        margin-right: 0.5em;
+    }
+}
+
+.contact-history-entry-subject {
+    font-weight: 600;
+}
+
+.contact-history-entry-subject,
+.contact-history-entry-note {
+    margin-top: 0.5em;
+    margin-bottom: 0em;
+}
+
+.contact-history-more-entries {
+    background: @gray-lighter;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    border: 1px solid @list-group-border;
+    border-top: 0;
+
+    > a { color: @gray; }
+    &:before {
+        .icon(@font-size: .7em);
+        content: "-";
+        margin-right: 0.5em;
+    }
+}

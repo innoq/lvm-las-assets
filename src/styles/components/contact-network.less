@@ -1,0 +1,27 @@
+// ============================================================================
+// A contact network shows a table-like listing of all connections to related
+// persons of a customer.
+// ============================================================================
+
+.contact-network {
+    .list();
+}
+
+.contact-role {
+    float: right;
+}
+
+.contact-source {
+    margin-right: 0.5em;
+}
+
+.contact-role,
+.contact-note {
+    &:extend(.small);
+    color: @headings-small-color;
+}
+
+.contact-note {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
