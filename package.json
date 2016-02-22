@@ -11,6 +11,9 @@
     "type": "git",
     "url": "https://github.com/innoq/lvm-las-assets"
   },
+  "bin" : {
+    "copy-assets" : "./copy-assets.js"
+  },
   "scripts": {
     "start": "webpack --progress --colors --watch",
     "test": "eslint --cache *.js src && echo ✓",
