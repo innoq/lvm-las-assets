@@ -42,9 +42,9 @@ $("table.extensible").each(function(i, node) {
     new ediTable(node);
 });
 
-$(".accordion").each(function(i, node) {
-    new Accordion(node);
-});
+$(() => {
+  $("[data-accordion='active']").each((i, node) => { new Accordion(node) })
+})
 
 $("table, ul, ol").filter(".sortable, .filterable").each(function(i, node) {
     var wrapper = listing(node);
