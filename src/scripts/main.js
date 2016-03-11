@@ -20,16 +20,6 @@ $(".onebox").each(function(i, node) {
     new OneBox(node);
 });
 
-var contextNav = $(".customer-card-wrapper, .branch-selector-fullwidth-wrapper")
-    .wrapAll('<div class="context-nav" />').parent();
-new StickyNav(contextNav, {
-    fixedClass: "is-fixed",
-    callback: function(fixed) {
-        contextNav.find(".branch-selector-item-icon")
-            .toggleClass("is-condensed", fixed); // XXX: non-generic / brittle
-    }
-});
-
 $("a.collection-preview").each(function(i, node) {
     new collectionPreview(node);
 });
@@ -44,6 +34,10 @@ $("table.extensible").each(function(i, node) {
 
 $(() => {
   $("[data-accordion='active']").each((i, node) => { new Accordion(node) })
+
+  new StickyNav($("[data-position='sticky']"), {
+    fixedClass: "is-fixed"
+  })
 })
 
 $("table, ul, ol").filter(".sortable, .filterable").each(function(i, node) {
