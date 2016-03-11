@@ -4,7 +4,6 @@
 var $ = require("jquery");
 global.jQuery = global.$ = $; // shim required for non-CommonJS libraries
 require("bootstrap"); // most widgets initialized via markup
-// TODO: require("bootstrap-tabdrop");
 var shortcutsInfo = require("./shortcuts");
 var OneBox = require("./onebox");
 var StickyNav = require("stickynav");
@@ -53,8 +52,6 @@ $("table, ul, ol").filter(".sortable, .filterable").each(function(i, node) {
         filter.appendTo(header);
     }
 });
-
-// TODO: $(".nav-tabs").tabdrop();
 
 // initialize Bootstrap widgets
 
