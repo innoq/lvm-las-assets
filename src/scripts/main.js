@@ -16,22 +16,11 @@ const listing = require('./listing')
 $(() => {
   shortcutsInfo()
 
-  $('.onebox').each((i, node) => {
-    new OneBox(node)
-  })
-
-  $('a.collection-preview').each((i, node) => {
-    new collectionPreview(node)
-  })
-
-  $('.expandable-grid').each((i, node) => { // XXX: bad class name
-    gridSelector(node)
-  })
-
-  $('table.extensible').each((i, node) => {
-    new ediTable(node)
-  })
-
+  $('.onebox').each((i, node) => { new OneBox(node) })
+  $('a.collection-preview').each((i, node) => { new collectionPreview(node) })
+  // XXX: bad class name
+  $('.expandable-grid').each((i, node) => { gridSelector(node) })
+  $('table.extensible').each((i, node) => { new ediTable(node) })
   $('[data-accordion=active]').each((i, node) => { new Accordion(node) })
 
   new StickyNav($('[data-position=sticky]'), {
@@ -67,7 +56,7 @@ $(() => {
     const max = $(window).width()
     const right = menu.offset().left + menu.outerWidth()
     if (right > max) {
-      menu.css('transform', 'translateX(' + (max - right) + 'px)')
+      menu.css('transform', `translateX(${max - right}px)`)
     }
   })
 
