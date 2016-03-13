@@ -30,9 +30,9 @@
     "jquery": "^2.1.1",
     "less": "^2.6.0",
     "less-plugin-npm-import": "^2.1.0",
-    "list.js": "git+ssh://git@github.com/FND/list.js.git",
+    "list.js": "FND/list.js",
     "npm": "^3.7.3",
-    "stickynav": "git+ssh://git@github.com/innoq/stickynav.git",
+    "stickynav": "innoq/stickynav",
     "velocity-animate": "^0.11.7"
   },
   "devDependencies": {
