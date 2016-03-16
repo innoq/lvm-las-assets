@@ -3,6 +3,7 @@
 
 var $ = require("jquery");
 require("velocity-animate");
+require('velocity-animate/velocity.ui')
 
 module.exports = function(container) {
     container = container.jquery ? container : $(container);

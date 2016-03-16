@@ -3,6 +3,7 @@
 
 var $ = require("jquery");
 require("velocity-animate");
+require('velocity-animate/velocity.ui')
 var util = require("./util");
 
 module.exports = OneBox;
