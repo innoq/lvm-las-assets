@@ -12,10 +12,12 @@ const gridSelector = require('./grid_selector')
 const ediTable = require('./editable')
 const Accordion = require('./accordion')
 const listing = require('./listing')
+const enablePreview = require('./preview')
 
 $(() => {
   shortcutsInfo()
 
+  $('[data-preview=enabled]').each((i, node) => { enablePreview(node) })
   $('.onebox').each((i, node) => { new OneBox(node) })
   $('a.collection-preview').each((i, node) => { new collectionPreview(node) })
   // XXX: bad class name
