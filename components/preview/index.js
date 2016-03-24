@@ -13,12 +13,15 @@ module.exports = (el) => {
 
   $.get(el.attr('href')).done((responseHtml) => {
     const selector = el.data('preview-selector')
-    const table = $(selector, $.parseHTML(responseHtml))
-    const count = table.find('tbody>tr').length
+    const content = $(selector, $.parseHTML(responseHtml))
 
-    el.attr('data-bubble', count)
+    if (el.data('preview-count-selector')) {
+      const count = content.find(el.data('preview-count-selector')).length
+      el.attr('data-bubble', count)
+    }
+
     el.data({
-      content: table,
+      content: content,
       html: true,
       placement: 'bottom',
       title: renderPreviewTitle(el.data('preview-title'), el.attr('href')),
