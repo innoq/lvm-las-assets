@@ -8,10 +8,14 @@ const renderPreviewTitle = (title, uri) => {
   return $(previewTitle).html()
 }
 
+const headers = {
+  Embedded: 'true'
+}
+
 module.exports = (el) => {
   el = $(el)
 
-  $.get(el.attr('href')).done((responseHtml) => {
+  $.ajax(el.attr('href'), { headers: headers }).done((responseHtml) => {
     const selector = el.data('preview-selector')
     const content = $(selector, $.parseHTML(responseHtml))
 
