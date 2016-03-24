@@ -6,7 +6,7 @@
   "bugs": {
     "url": "https://github.com/innoq/lvm-las-assets/issues"
   },
-  "main": "src/scripts/main.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/innoq/lvm-las-assets"
