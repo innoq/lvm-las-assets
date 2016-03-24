@@ -11,7 +11,7 @@ If the remote page is not reachable, it will show a warning indicator.
 
 ```html
 <a href="/example"
-   class="notification-menu"
+   class="preview"
    data-preview="enabled"
    data-preview-title="Example Preview"
    data-preview-selector="table.example"
@@ -24,7 +24,7 @@ If the remote page is not reachable, it will show a warning indicator.
 
 ### Options
 
-The component expects a link with the attribute `data-preview="enabled"` and an `href`, which is then used to fetch the page. To use the according styling use the `notification-menu` class. You can use either or both of these options:
+The component expects a link with the attribute `data-preview="enabled"` and an `href`, which is then used to fetch the page. To use the according styling use the `preview` class. You can use either or both of these options:
 
 * `data-preview-window`: If this option is passed, the preview window will be shown. Otherwise the link will remain as a link.
 * `data-preview-count`: This expects a CSS selector. The number of elements matching this CSS selector will be counted and the number will be displayed as an indicator.
