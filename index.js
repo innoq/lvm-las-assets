@@ -3,16 +3,16 @@ const $ = require('jquery')
 global.jQuery = global.$ = $
 // most widgets initialized via markup
 require('bootstrap')
-const shortcutsInfo = require('./shortcuts')
-const OneBox = require('./onebox')
+const shortcutsInfo = require('./src/scripts/shortcuts')
+const OneBox = require('./src/scripts/onebox')
 const StickyNav = require('stickynav')
-const collectionPreview = require('./collection_preview')
+const collectionPreview = require('./src/scripts/collection_preview')
 // XXX: bad name
-const gridSelector = require('./grid_selector')
-const ediTable = require('./editable')
-const Accordion = require('./accordion')
-const listing = require('./listing')
-const enablePreview = require('./preview')
+const gridSelector = require('./src/scripts/grid_selector')
+const ediTable = require('./src/scripts/editable')
+const Accordion = require('./src/scripts/accordion')
+const listing = require('./src/scripts/listing')
+const enablePreview = require('./components/preview')
 
 $(() => {
   shortcutsInfo()

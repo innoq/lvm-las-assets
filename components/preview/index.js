@@ -8,27 +8,36 @@ const renderPreviewTitle = (title, uri) => {
   return $(previewTitle).html()
 }
 
+const headers = {
+  Embedded: 'true'
+}
+
 module.exports = (el) => {
   el = $(el)
 
-  $.get(el.attr('href')).done((responseHtml) => {
+  $.ajax(el.attr('href'), { headers: headers }).done((responseHtml) => {
     const selector = el.data('preview-selector')
-    const table = $(selector, $.parseHTML(responseHtml))
-    const count = table.find('tbody>tr').length
+    const content = $(selector, $.parseHTML(responseHtml))
 
-    el.attr('data-bubble', count)
-    el.data({
-      content: table,
-      html: true,
-      placement: 'bottom',
-      title: renderPreviewTitle(el.data('preview-title'), el.attr('href')),
-      toggle: 'popover'
-    }).on('click', (e) => {
-      e.preventDefault()
-    }).popover({
-      container: 'body',
-      trigger: 'click'
-    })
+    if (el.data('preview-count')) {
+      const count = content.find(el.data('preview-count')).length
+      el.attr('data-bubble', count)
+    }
+
+    if (el.data('preview-window') === '') {
+      el.data({
+        content: content,
+        html: true,
+        placement: 'bottom',
+        title: renderPreviewTitle(el.data('preview-title'), el.attr('href')),
+        toggle: 'popover'
+      }).on('click', (e) => {
+        e.preventDefault()
+      }).popover({
+        container: 'body',
+        trigger: 'click'
+      })
+    }
   }).fail(() => {
     el.attr('data-bubble', '!')
     el.data({
