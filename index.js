@@ -13,10 +13,12 @@ const ediTable = require('./src/scripts/editable')
 const Accordion = require('./src/scripts/accordion')
 const listing = require('./src/scripts/listing')
 const enablePreview = require('./components/preview')
+const enableDependentInputs = require('./components/dependentInputs')
 
 $(() => {
   shortcutsInfo()
 
+  $('[data-dependent=true]').each((i, node) => { enableDependentInputs(node) })
   $('[data-preview=enabled]').each((i, node) => { enablePreview(node) })
   $('.onebox').each((i, node) => { new OneBox(node) })
   $('a.collection-preview').each((i, node) => { new collectionPreview(node) })
